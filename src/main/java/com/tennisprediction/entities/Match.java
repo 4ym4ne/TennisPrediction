@@ -3,6 +3,7 @@ package com.tennisprediction.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -13,6 +14,8 @@ import java.util.UUID;
 @Table(name = "matches", schema = "public")
 public class Match {
     @Id
+    @GeneratedValue(generator = "UUID") // Add this line
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "matchid", nullable = false)
     private UUID id;
 

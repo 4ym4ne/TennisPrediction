@@ -1,11 +1,9 @@
 package com.tennisprediction.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
 
@@ -15,6 +13,8 @@ import java.util.UUID;
 @Table(name = "tournaments", schema = "public")
 public class Tournament {
     @Id
+    @GeneratedValue(generator = "UUID") // Add this line
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator") // Add this line
     @Column(name = "tournamentid", nullable = false)
     private UUID id;
 
