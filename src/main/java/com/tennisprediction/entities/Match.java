@@ -19,18 +19,18 @@ public class Match {
     @Column(name = "matchid", nullable = false)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tournamentid")
     private Tournament tournamentid;
 
     @Column(name = "round", length = 50)
     private String round;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "player1id")
     private Player player1id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "player2id")
     private Player player2id;
 
